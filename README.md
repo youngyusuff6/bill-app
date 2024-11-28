@@ -158,6 +158,14 @@ Authorization: Bearer {your_token}
     "provider": "MTN"
 }
 ```
+## BILLAPP API Documentation
+
+You can find the full API documentation and Postman collection below:
+
+- [BILLAPP API Documentation (Postman)](https://documenter.getpostman.com/view/19899859/2sAYBXBWd9)
+
+
+
 
 ## License
 
