@@ -160,7 +160,7 @@ Authorization: Bearer {your_token}
 ```
 ## BILLAPP API Documentation
 
-You can find the full API documentation and Postman collection below:
+You can find the full API documentation below:
 
 - [BILLAPP API Documentation (Postman)](https://documenter.getpostman.com/view/19899859/2sAYBXBWd9)
 
