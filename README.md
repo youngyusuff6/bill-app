@@ -22,8 +22,8 @@ BILLAPP is an API platform designed to manage user wallets, transactions, and ai
 1. **Clone the repository**:
 
     ```bash
-    git clone https://github.com/youngyusuff6/billapp-api.git
-    cd billapp-api
+    git clone https://github.com/youngyusuff6/bill-app.git
+    cd bill-app
     ```
 
 2. **Install dependencies**:
