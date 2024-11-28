@@ -1,0 +1,942 @@
+{
+	"info": {
+		"_postman_id": "c47157c5-e72b-43c8-a594-7e12f7c1d8ca",
+		"name": "bill_app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19899859"
+	},
+	"item": [
+		{
+			"name": "REGISTER USER",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Yusuff Abdulhameed\",\r\n    \"email\": \"yyusuff@gmail.com\",\r\n    \"password\": \"password123\",\r\n    \"password_confirmation\": \"password123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/register",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"register"
+					]
+				},
+				"description": "### Register User\n\nThis endpoint allows you to register a new user.\n\n#### Request Body\n\n- `name` (string) - The name of the user.\n    \n- `email` (string) - The email address of the user.\n    \n- `password` (string) - The password for the user's account.\n    \n- `password_confirmation` (string) - The confirmation of the password.\n    \n\n#### Response\n\n- `status` (string) - The status of the registration process.\n    \n- `message` (string) - A message related to the registration process.\n    \n- `data`\n    \n    - `name` (string) - The name of the registered user.\n        \n    - `email` (string) - The email address of the registered user.\n        \n    - `created_at` (string) - The timestamp of when the user account was created.\n        \n    - `updated_at` (string) - The timestamp of when the user account was last updated.\n        \n    - `id` (string) - The tokenized identifier of the registered user."
+			},
+			"response": [
+				{
+					"name": "Register User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Yusuff Abdulhameed\",\r\n    \"email\": \"yyusuff@gmail.com\",\r\n    \"password\": \"password123\",\r\n    \"password_confirmation\": \"password123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 28 Nov 2024 13:19:51 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"User registered successfully\",\n    \"data\": {\n        \"name\": \"Yusuff Abdulhameed\",\n        \"email\": \"yyusuff@gmail.com\",\n        \"created_at\": \"2024-11-28T13:19:50.000000Z\",\n        \"updated_at\": \"2024-11-28T13:19:50.000000Z\",\n        \"user_codec\": \"4d87a6ada001a402\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "LOGIN USER",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"yyusuff@gmail.com\",\r\n    \"password\": \"password123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"login"
+					]
+				},
+				"description": "The `POST /login` endpoint is used to authenticate and log in a user.\n\n### Request Body\n\n- The request body should be in JSON format and include the user's email and password.\n    \n\nExample:\n\n``` json\n{\n    \"email\": \"user_email\",\n    \"password\": \"user_password\"\n}\n\n ```\n\n### Response\n\nThe response will be in JSON format with the following schema:\n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"status\": {\n            \"type\": \"string\"\n        },\n        \"message\": {\n            \"type\": \"string\"\n        },\n        \"data\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"user\": {\n                    \"type\": \"object\",\n                    \"properties\": {\n                        \"user_codec\": {\n                            \"type\": \"string\"\n                        },\n                        \"name\": {\n                            \"type\": \"string\"\n                        },\n                        \"email\": {\n                            \"type\": \"string\"\n                        },\n                        \"created_at\": {\n                            \"type\": \"string\"\n                        },\n                        \"updated_at\": {\n                            \"type\": \"string\"\n                        }\n                    }\n                },\n                \"token\": {\n                    \"type\": \"string\"\n                }\n            }\n        }\n    }\n}\n\n ```"
+			},
+			"response": [
+				{
+					"name": "User Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"yyusuff@gmail.com\",\r\n    \"password\": \"password123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 28 Nov 2024 13:19:03 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"Login successful\",\n    \"data\": {\n        \"user\": {\n            \"user_codec\": \"957271883a88954b\",\n            \"name\": \"Yusuff Abdulhameed\",\n            \"email\": \"yusuff@gmail.com\",\n            \"created_at\": \"2024-11-28T13:08:12.000000Z\",\n            \"updated_at\": \"2024-11-28T13:08:12.000000Z\"\n        },\n        \"token\": \"4|lCyEROG3oKd4WVWuvtMfoe8LlBCiSqdgzRSI0wcX52a43694\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "TRANSACTION - FUND WALLET",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "4|lCyEROG3oKd4WVWuvtMfoe8LlBCiSqdgzRSI0wcX52a43694",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"amount\": 5000 \r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/wallet/fund",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"wallet",
+						"fund"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "TRANSACTION - FUND WALLET",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"amount\": 5000 \r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/wallet/fund",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"wallet",
+								"fund"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 28 Nov 2024 13:56:46 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"Wallet funded successfully\",\n    \"data\": {\n        \"wallet\": {\n            \"user_codec\": \"7e6afa3ba26a7f3d\",\n            \"balance\": \"15000\",\n            \"transaction_datetime\": \"November 28th 2024 at 1:08pm\"\n        },\n        \"txn_id\": \"BA6748769E5B4D8\"\n    }\n}"
+				},
+				{
+					"name": "TRANSACTION - FAILED DEPOSIT",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"amount\": 10000 \r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/wallet/fund",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"wallet",
+								"fund"
+							]
+						}
+					},
+					"status": "Unprocessable Content",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 28 Nov 2024 14:00:16 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"failed\",\n    \"message\": \"Validation failed\",\n    \"data\": {\n        \"amount\": [\n            \"Deposit amount can not exceed 9999, please try again!\"\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "WALLET - BALANCE",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "4|lCyEROG3oKd4WVWuvtMfoe8LlBCiSqdgzRSI0wcX52a43694",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/wallet/balance",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"wallet",
+						"balance"
+					]
+				},
+				"description": "### Get Wallet Balance\n\nThis endpoint allows you to retrieve the current balance of the user's wallet.\n\n#### Request\n\n- Method: GET\n    \n- Endpoint: `{{base_url}}/wallet/balance`\n    \n\n#### Response\n\nThe response will include the following fields:\n\n- `status` (string): The status of the response.\n    \n- `message` (string): A message related to the response.\n    \n- `data` (object):\n    \n    - `wallet` (object):\n        \n        - `user_codec` (string): The user's unique ID codec.\n            \n        - `balance` (string): The current balance in the user's wallet.\n            \n        - `last_updated_at` (string): The timestamp indicating when the wallet balance was last updated."
+			},
+			"response": [
+				{
+					"name": "WALLET - BALANCE",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/wallet/balance",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"wallet",
+								"balance"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 28 Nov 2024 14:03:53 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"Wallet balance retrieved successfully\",\n    \"data\": {\n        \"wallet\": {\n            \"user_codec\": \"fc025924d96be335\",\n            \"balance\": \"15000\",\n            \"last_updated_at\": \"November 28th 2024 at 1:56pm\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "PROVIDERS - GET AVAILABLE PROVIDERS",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "4|lCyEROG3oKd4WVWuvtMfoe8LlBCiSqdgzRSI0wcX52a43694",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/airtime/providers",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"airtime",
+						"providers"
+					]
+				},
+				"description": "### GET /airtime/providers\n\nThis endpoint retrieves a list of airtime providers.\n\n#### Request\n\nThis request does not require any request body.\n\n#### Response\n\nThe response will be in JSON format with the following schema:\n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"status\": {\n            \"type\": \"string\"\n        },\n        \"message\": {\n            \"type\": \"string\"\n        },\n        \"data\": {\n            \"type\": \"array\",\n            \"items\": {\n                \"type\": \"string\"\n            }\n        }\n    }\n}\n\n ```"
+			},
+			"response": [
+				{
+					"name": "PROVIDERS - GET AVAILABLE PROVIDERS",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/airtime/providers",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"airtime",
+								"providers"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 28 Nov 2024 14:08:20 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"Supported Providers Retrieved\",\n    \"data\": [\n        \"MTN\",\n        \"AIRTEL\",\n        \"9MOBILE\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "TRANSACTION - PURCHASE AIRTIME",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "4|lCyEROG3oKd4WVWuvtMfoe8LlBCiSqdgzRSI0wcX52a43694",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n            \"amount\" : \"1000\",\r\n            \"phone_number\" : \"08035284798\",\r\n            \"provider\" : \"MTN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/wallet/airtime",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"wallet",
+						"airtime"
+					]
+				},
+				"description": "### POST /wallet/airtime\n\nThis endpoint is used to initiate a request to top up airtime for a mobile phone.\n\n#### Request Body\n\n- `amount` (string) - The amount of airtime to be purchased, a minimum of 50 and a max of 5000.\n    \n- `phone_number` (string) - The phone number for which the airtime is to be purchased.\n    \n- `provider` (string) - The service provider for the airtime purchase.\n    \n\n#### Response\n\nThe response will be a JSON object with the following properties:\n\n- `status` (string) - The status of the transaction.\n    \n- `message` (string) - A message related to the transaction status.\n    \n- `data` (object) - An object containing transaction details:\n    \n    - `transaction_id` (string) - The ID of the transaction.\n        \n    - `amount` (number) - The amount of airtime purchased.\n        \n    - `type` (string) - The type of transaction.\n        \n    - `status` (string) - The status of the transaction.\n        \n    - `description` (string) - Additional description related to the transaction.\n        \n    - `metadata` (object) - Additional metadata related to the transaction:\n        \n        - `service` (string) - The type of service.\n            \n        - `provider` (string) - The service provider.\n            \n        - `phone_number` (string) - The phone number for which the airtime was purchased.\n            \n    - `created_at` (string) - Timestamp of the transaction creation.\n        \n    - `updated_at` (string) - Timestamp of the transaction update.\n        \n    - `user_codec` (string) - Unique user related to the transaction.\n        \n\n#### Example Response\n\n``` json\n{\n  \"status\": \"\",\n  \"message\": \"\",\n  \"data\": {\n    \"transaction_id\": \"\",\n    \"amount\": 0,\n    \"type\": \"\",\n    \"status\": \"\",\n    \"description\": \"\",\n    \"metadata\": {\n      \"service\": \"\",\n      \"provider\": \"\",\n      \"phone_number\": \"\"\n    },\n    \"created_at\": \"\",\n    \"updated_at\": \"\",\n    \"user_codec\": \"\"\n  }\n}\n\n ```"
+			},
+			"response": [
+				{
+					"name": "TRANSACTION - PURCHASE AIRTIME",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"amount\" : \"1000\",\r\n            \"phone_number\" : \"08035284798\",\r\n            \"provider\" : \"MTN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/wallet/airtime",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"wallet",
+								"airtime"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 28 Nov 2024 14:50:50 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"Airtime purchased successfully\",\n    \"data\": {\n        \"transaction_id\": \"BA6748834A42FDA\",\n        \"amount\": 1000,\n        \"type\": \"AIRTIME\",\n        \"status\": \"SUCCESS\",\n        \"description\": \"Airtime Purchase\",\n        \"metadata\": {\n            \"service\": \"airtime\",\n            \"provider\": \"MTN\",\n            \"phone_number\": \"08035284798\"\n        },\n        \"created_at\": \"November 28th 2024 at 2:50pm\",\n        \"updated_at\": \"2024-11-28T14:50:50.000000Z\",\n        \"user_codec\": \"a92bb39335a50842\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "TRANSACTION - GET ALL TRANSACTION",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "4|lCyEROG3oKd4WVWuvtMfoe8LlBCiSqdgzRSI0wcX52a43694",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/wallet/transactions/all",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"wallet",
+						"transactions",
+						"all"
+					]
+				},
+				"description": "### Get All Wallet Transactions\n\nThis endpoint retrieves all wallet transactions for the user.\n\n#### Request Body\n\nThis request does not require a request body.\n\n#### Response\n\n- `status` (string): The status of the response.\n    \n- `message` (string): A message related to the response.\n    \n- `data` (object): The container for the response data.\n    \n    - `user_codec` (string): The user codec information.\n        \n    - `transactions` (array): An array of transaction objects.\n        \n        - `id` (integer): The unique identifier for the transaction.\n            \n        - `transaction_id` (string): The transaction ID.\n            \n        - `amount` (string): The amount of the transaction.\n            \n        - `type` (string): The type of transaction.\n            \n        - `status` (string): The status of the transaction.\n            \n        - `description` (string): A description of the transaction.\n            \n        - `metadata` (object): Additional metadata for the transaction.\n            \n            - `service` (string): The service related to the transaction.\n                \n            - `provider` (string): The provider related to the transaction.\n                \n            - `phone_number` (string): The phone number related to the transaction.\n                \n        - `created_at` (string): The timestamp of when the transaction was created.\n            \n        - `updated_at` (string): The timestamp of when the transaction was last updated.\n            \n\n#### Example Response\n\n``` json\n{\n    \"status\": \"\",\n    \"message\": \"\",\n    \"data\": {\n        \"user_codec\": \"\",\n        \"transactions\": [\n            {\n                \"id\": 0,\n                \"transaction_id\": \"\",\n                \"amount\": \"\",\n                \"type\": \"\",\n                \"status\": \"\",\n                \"description\": \"\",\n                \"metadata\": {\n                    \"service\": \"\",\n                    \"provider\": \"\",\n                    \"phone_number\": \"\"\n                },\n                \"created_at\": \"\",\n                \"updated_at\": \"\"\n            }\n        ]\n    }\n}\n\n ```"
+			},
+			"response": [
+				{
+					"name": "TRANSACTION - GET ALL TRANSACTION",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/wallet/transactions/all",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"wallet",
+								"transactions",
+								"all"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 28 Nov 2024 15:17:22 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"Transactions retrieved successfully\",\n    \"data\": {\n        \"user_codec\": \"c7541c1f783f22d3\",\n        \"transactions\": [\n            {\n                \"id\": 17,\n                \"transaction_id\": \"BA6748834A42FDA\",\n                \"amount\": \"1000.00\",\n                \"type\": \"AIRTIME\",\n                \"status\": \"SUCCESS\",\n                \"description\": \"Airtime Purchase\",\n                \"metadata\": {\n                    \"service\": \"airtime\",\n                    \"provider\": \"MTN\",\n                    \"phone_number\": \"08035284798\"\n                },\n                \"created_at\": \"2024-11-28T14:50:50.000000Z\",\n                \"updated_at\": \"2024-11-28T14:50:50.000000Z\"\n            },\n            {\n                \"id\": 16,\n                \"transaction_id\": \"BA6748833834557\",\n                \"amount\": \"1000.00\",\n                \"type\": \"AIRTIME\",\n                \"status\": \"SUCCESS\",\n                \"description\": \"Airtime Purchase\",\n                \"metadata\": {\n                    \"service\": \"airtime\",\n                    \"provider\": \"MTN\",\n                    \"phone_number\": \"08035284798\"\n                },\n                \"created_at\": \"2024-11-28T14:50:32.000000Z\",\n                \"updated_at\": \"2024-11-28T14:50:32.000000Z\"\n            },\n            {\n                \"id\": 15,\n                \"transaction_id\": \"BA6748829A81E32\",\n                \"amount\": \"100.00\",\n                \"type\": \"AIRTIME\",\n                \"status\": \"SUCCESS\",\n                \"description\": \"Airtime Purchase\",\n                \"metadata\": {\n                    \"service\": \"airtime\",\n                    \"provider\": \"MTN\",\n                    \"phone_number\": \"08035284798\"\n                },\n                \"created_at\": \"2024-11-28T14:47:54.000000Z\",\n                \"updated_at\": \"2024-11-28T14:47:54.000000Z\"\n            },\n            {\n                \"id\": 14,\n                \"transaction_id\": \"BA6748809305EED\",\n                \"amount\": \"100.00\",\n                \"type\": \"AIRTIME\",\n                \"status\": \"SUCCESS\",\n                \"description\": \"Airtime Purchase\",\n                \"metadata\": {\n                    \"service\": \"airtime\",\n                    \"provider\": \"MTN\",\n                    \"phone_number\": \"08035284798\"\n                },\n                \"created_at\": \"2024-11-28T14:39:15.000000Z\",\n                \"updated_at\": \"2024-11-28T14:39:15.000000Z\"\n            },\n            {\n                \"id\": 13,\n                \"transaction_id\": \"BA6748769E5B4D8\",\n                \"amount\": \"5000.00\",\n                \"type\": \"FUND\",\n                \"status\": \"SUCCESS\",\n                \"description\": \"Wallet Funding\",\n                \"metadata\": null,\n                \"created_at\": \"2024-11-28T13:56:46.000000Z\",\n                \"updated_at\": \"2024-11-28T13:56:46.000000Z\"\n            },\n            {\n                \"id\": 12,\n                \"transaction_id\": \"BA6748768C7C218\",\n                \"amount\": \"5000.00\",\n                \"type\": \"FUND\",\n                \"status\": \"SUCCESS\",\n                \"description\": \"Wallet Funding\",\n                \"metadata\": null,\n                \"created_at\": \"2024-11-28T13:56:28.000000Z\",\n                \"updated_at\": \"2024-11-28T13:56:28.000000Z\"\n            },\n            {\n                \"id\": 11,\n                \"transaction_id\": \"BA6748761F1D4A5\",\n                \"amount\": \"500.00\",\n                \"type\": \"FUND\",\n                \"status\": \"SUCCESS\",\n                \"description\": \"Wallet Funding\",\n                \"metadata\": null,\n                \"created_at\": \"2024-11-28T13:54:39.000000Z\",\n                \"updated_at\": \"2024-11-28T13:54:39.000000Z\"\n            },\n            {\n                \"id\": 10,\n                \"transaction_id\": \"BA674875D6BB4A9\",\n                \"amount\": \"500.00\",\n                \"type\": \"FUND\",\n                \"status\": \"SUCCESS\",\n                \"description\": \"Wallet Funding\",\n                \"metadata\": null,\n                \"created_at\": \"2024-11-28T13:53:26.000000Z\",\n                \"updated_at\": \"2024-11-28T13:53:26.000000Z\"\n            },\n            {\n                \"id\": 8,\n                \"transaction_id\": \"BA6748739DE776F\",\n                \"amount\": \"500.00\",\n                \"type\": \"FUND\",\n                \"status\": \"SUCCESS\",\n                \"description\": \"Wallet Funding\",\n                \"metadata\": null,\n                \"created_at\": \"2024-11-28T13:43:57.000000Z\",\n                \"updated_at\": \"2024-11-28T13:43:57.000000Z\"\n            },\n            {\n                \"id\": 7,\n                \"transaction_id\": \"BA6748731746761\",\n                \"amount\": \"500.00\",\n                \"type\": \"FUND\",\n                \"status\": \"SUCCESS\",\n                \"description\": \"Wallet Funding\",\n                \"metadata\": null,\n                \"created_at\": \"2024-11-28T13:41:43.000000Z\",\n                \"updated_at\": \"2024-11-28T13:41:43.000000Z\"\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "TRANSACTION - GET ALL DEPOSIT",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "4|lCyEROG3oKd4WVWuvtMfoe8LlBCiSqdgzRSI0wcX52a43694",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/wallet/transactions/deposit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"wallet",
+						"transactions",
+						"deposit"
+					]
+				},
+				"description": "### Get Wallet Deposit Transactions\n\nThis endpoint retrieves the deposit transactions for the wallet.\n\n#### Request Body\n\nThis is a GET request and does not require a request body.\n\n#### Response\n\n- Status: 200\n    \n- Content-Type: application/json\n    \n\n##### Response Body\n\nThe response will contain an array of deposit transactions with the following attributes:\n\n- `id` (number): The ID of the transaction\n    \n- `transaction_id` (string): The unique identifier for the transaction\n    \n- `amount` (string): The amount of the deposit\n    \n- `type` (string): The type of transaction\n    \n- `status` (string): The status of the transaction\n    \n- `description` (string): A description of the transaction\n    \n- `created_at` (string): The timestamp of when the transaction was created\n    \n- `updated_at` (string): The timestamp of when the transaction was last updated"
+			},
+			"response": [
+				{
+					"name": "TRANSACTION - GET ALL DEPOSIT",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/wallet/transactions/deposit",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"wallet",
+								"transactions",
+								"deposit"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 28 Nov 2024 15:27:31 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"Transactions retrieved successfully\",\n    \"data\": {\n        \"user_codec\": \"a53b0e871a161fa7\",\n        \"transactions\": [\n            {\n                \"id\": 13,\n                \"transaction_id\": \"BA6748769E5B4D8\",\n                \"amount\": \"5000.00\",\n                \"type\": \"FUND\",\n                \"status\": \"SUCCESS\",\n                \"description\": \"Wallet Funding\",\n                \"created_at\": \"2024-11-28T13:56:46.000000Z\",\n                \"updated_at\": \"2024-11-28T13:56:46.000000Z\"\n            },\n            {\n                \"id\": 12,\n                \"transaction_id\": \"BA6748768C7C218\",\n                \"amount\": \"5000.00\",\n                \"type\": \"FUND\",\n                \"status\": \"SUCCESS\",\n                \"description\": \"Wallet Funding\",\n                \"created_at\": \"2024-11-28T13:56:28.000000Z\",\n                \"updated_at\": \"2024-11-28T13:56:28.000000Z\"\n            },\n            {\n                \"id\": 11,\n                \"transaction_id\": \"BA6748761F1D4A5\",\n                \"amount\": \"500.00\",\n                \"type\": \"FUND\",\n                \"status\": \"SUCCESS\",\n                \"description\": \"Wallet Funding\",\n                \"created_at\": \"2024-11-28T13:54:39.000000Z\",\n                \"updated_at\": \"2024-11-28T13:54:39.000000Z\"\n            },\n            {\n                \"id\": 10,\n                \"transaction_id\": \"BA674875D6BB4A9\",\n                \"amount\": \"500.00\",\n                \"type\": \"FUND\",\n                \"status\": \"SUCCESS\",\n                \"description\": \"Wallet Funding\",\n                \"created_at\": \"2024-11-28T13:53:26.000000Z\",\n                \"updated_at\": \"2024-11-28T13:53:26.000000Z\"\n            },\n            {\n                \"id\": 8,\n                \"transaction_id\": \"BA6748739DE776F\",\n                \"amount\": \"500.00\",\n                \"type\": \"FUND\",\n                \"status\": \"SUCCESS\",\n                \"description\": \"Wallet Funding\",\n                \"created_at\": \"2024-11-28T13:43:57.000000Z\",\n                \"updated_at\": \"2024-11-28T13:43:57.000000Z\"\n            },\n            {\n                \"id\": 7,\n                \"transaction_id\": \"BA6748731746761\",\n                \"amount\": \"500.00\",\n                \"type\": \"FUND\",\n                \"status\": \"SUCCESS\",\n                \"description\": \"Wallet Funding\",\n                \"created_at\": \"2024-11-28T13:41:43.000000Z\",\n                \"updated_at\": \"2024-11-28T13:41:43.000000Z\"\n            },\n            {\n                \"id\": 6,\n                \"transaction_id\": \"BA674872BC84B3C\",\n                \"amount\": \"500.00\",\n                \"type\": \"FUND\",\n                \"status\": \"SUCCESS\",\n                \"description\": \"Wallet Funding\",\n                \"created_at\": \"2024-11-28T13:40:12.000000Z\",\n                \"updated_at\": \"2024-11-28T13:40:12.000000Z\"\n            },\n            {\n                \"id\": 5,\n                \"transaction_id\": \"BA67487210D5B30\",\n                \"amount\": \"500.00\",\n                \"type\": \"FUND\",\n                \"status\": \"SUCCESS\",\n                \"description\": \"Wallet Funding\",\n                \"created_at\": \"2024-11-28T13:37:20.000000Z\",\n                \"updated_at\": \"2024-11-28T13:37:20.000000Z\"\n            },\n            {\n                \"id\": 4,\n                \"transaction_id\": \"BA6748720809425\",\n                \"amount\": \"500.00\",\n                \"type\": \"FUND\",\n                \"status\": \"SUCCESS\",\n                \"description\": \"Wallet Funding\",\n                \"created_at\": \"2024-11-28T13:37:12.000000Z\",\n                \"updated_at\": \"2024-11-28T13:37:12.000000Z\"\n            },\n            {\n                \"id\": 3,\n                \"transaction_id\": \"BA674871127C9EF\",\n                \"amount\": \"500.00\",\n                \"type\": \"FUND\",\n                \"status\": \"SUCCESS\",\n                \"description\": \"Wallet Funding\",\n                \"created_at\": \"2024-11-28T13:33:06.000000Z\",\n                \"updated_at\": \"2024-11-28T13:33:06.000000Z\"\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "TRANSACTION - GET ALL AIRTIME PURCHASES",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "4|lCyEROG3oKd4WVWuvtMfoe8LlBCiSqdgzRSI0wcX52a43694",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/wallet/transactions/purchases",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"wallet",
+						"transactions",
+						"purchases"
+					]
+				},
+				"description": "### GET /wallet/transactions/purchases\n\nThis endpoint retrieves the list of purchase transactions related to the user's wallet.\n\n#### Request\n\nNo request body is required for this endpoint.\n\n#### Response\n\nThe response will be a JSON object with the following schema:\n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"status\": {\n            \"type\": \"string\"\n        },\n        \"message\": {\n            \"type\": \"string\"\n        },\n        \"data\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"user_codec\": {\n                    \"type\": \"string\"\n                },\n                \"transactions\": {\n                    \"type\": \"array\",\n                    \"items\": {\n                        \"type\": \"object\",\n                        \"properties\": {\n                            \"id\": {\n                                \"type\": \"integer\"\n                            },\n                            \"transaction_id\": {\n                                \"type\": \"string\"\n                            },\n                            \"amount\": {\n                                \"type\": \"string\"\n                            },\n                            \"type\": {\n                                \"type\": \"string\"\n                            },\n                            \"status\": {\n                                \"type\": \"string\"\n                            },\n                            \"description\": {\n                                \"type\": \"string\"\n                            },\n                            \"created_at\": {\n                                \"type\": \"string\"\n                            },\n                            \"updated_at\": {\n                                \"type\": \"string\"\n                            },\n                            \"metadata\": {\n                                \"type\": \"object\",\n                                \"properties\": {\n                                    \"service\": {\n                                        \"type\": \"string\"\n                                    },\n                                    \"provider\": {\n                                        \"type\": \"string\"\n                                    },\n                                    \"phone_number\": {\n                                        \"type\": \"string\"\n                                    }\n                                }\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n\n ```\n\nThe response will contain a status, message, user_codec, and an array of transactions. Each transaction object will have an id, transaction_id, amount, type, status, description, created_at, updated_at, and metadata including service, provider, and phone_number."
+			},
+			"response": [
+				{
+					"name": "TRANSACTION - GET ALL AIRTIME PURCHASE",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/wallet/transactions/purchases",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"wallet",
+								"transactions",
+								"purchases"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 28 Nov 2024 15:29:27 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"Transactions retrieved successfully\",\n    \"data\": {\n        \"user_codec\": \"13dde8605f8983d1\",\n        \"transactions\": [\n            {\n                \"id\": 17,\n                \"transaction_id\": \"BA6748834A42FDA\",\n                \"amount\": \"1000.00\",\n                \"type\": \"AIRTIME\",\n                \"status\": \"SUCCESS\",\n                \"description\": \"Airtime Purchase\",\n                \"created_at\": \"2024-11-28T14:50:50.000000Z\",\n                \"updated_at\": \"2024-11-28T14:50:50.000000Z\",\n                \"metadata\": {\n                    \"service\": \"airtime\",\n                    \"provider\": \"MTN\",\n                    \"phone_number\": \"08035284798\"\n                }\n            },\n            {\n                \"id\": 16,\n                \"transaction_id\": \"BA6748833834557\",\n                \"amount\": \"1000.00\",\n                \"type\": \"AIRTIME\",\n                \"status\": \"SUCCESS\",\n                \"description\": \"Airtime Purchase\",\n                \"created_at\": \"2024-11-28T14:50:32.000000Z\",\n                \"updated_at\": \"2024-11-28T14:50:32.000000Z\",\n                \"metadata\": {\n                    \"service\": \"airtime\",\n                    \"provider\": \"MTN\",\n                    \"phone_number\": \"08035284798\"\n                }\n            },\n            {\n                \"id\": 15,\n                \"transaction_id\": \"BA6748829A81E32\",\n                \"amount\": \"100.00\",\n                \"type\": \"AIRTIME\",\n                \"status\": \"SUCCESS\",\n                \"description\": \"Airtime Purchase\",\n                \"created_at\": \"2024-11-28T14:47:54.000000Z\",\n                \"updated_at\": \"2024-11-28T14:47:54.000000Z\",\n                \"metadata\": {\n                    \"service\": \"airtime\",\n                    \"provider\": \"MTN\",\n                    \"phone_number\": \"08035284798\"\n                }\n            },\n            {\n                \"id\": 14,\n                \"transaction_id\": \"BA6748809305EED\",\n                \"amount\": \"100.00\",\n                \"type\": \"AIRTIME\",\n                \"status\": \"SUCCESS\",\n                \"description\": \"Airtime Purchase\",\n                \"created_at\": \"2024-11-28T14:39:15.000000Z\",\n                \"updated_at\": \"2024-11-28T14:39:15.000000Z\",\n                \"metadata\": {\n                    \"service\": \"airtime\",\n                    \"provider\": \"MTN\",\n                    \"phone_number\": \"08035284798\"\n                }\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "USER LOGOUT",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "4|lCyEROG3oKd4WVWuvtMfoe8LlBCiSqdgzRSI0wcX52a43694",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/logout",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"logout"
+					]
+				},
+				"description": "The `/logout` endpoint is an HTTP POST request used to log out the user. Upon successful execution, the server returns a JSON response with a status code of 200 and a content type of `application/json`. The response schema for this request is as follows:\n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"status\": {\n            \"type\": \"string\"\n        },\n        \"message\": {\n            \"type\": \"string\"\n        },\n        \"data\": {\n            \"type\": \"null\"\n        }\n    }\n}\n\n ```"
+			},
+			"response": [
+				{
+					"name": "USER LOGOUT",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/logout",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 28 Nov 2024 15:43:32 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"Successfully logged out.\",\n    \"data\": null\n}"
+				}
+			]
+		}
+	]
+}
